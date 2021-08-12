@@ -16,9 +16,13 @@ class ContactForm extends Component {
 
   handleSubmit = (evt) => {
     evt.preventDefault();
-    const { name, number } = this.state;
-    this.props.onSubmit({ id: uuidv4(), name, number });
-    this.reset();
+    if (this.state.name && this.state.number !== "") {
+      const { name, number } = this.state;
+      this.props.onSubmit({ id: uuidv4(), name, number });
+      this.reset();
+      return;
+    }
+    alert("Please, input name and number");
   };
 
   reset = () => {

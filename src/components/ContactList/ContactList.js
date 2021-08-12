@@ -1,6 +1,5 @@
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import actions from "../../redux/contacts/actions";
+
 import styles from "./ContactList.module.css";
 
 const ContactList = ({ contacts, onDelete }) => (
@@ -23,19 +22,4 @@ ContactList.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-const getVisibleContacts = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter)
-  );
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-  contacts: getVisibleContacts(items, filter),
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onDelete: (id) => dispatch(actions.deleteContact(id)),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default ContactList;
