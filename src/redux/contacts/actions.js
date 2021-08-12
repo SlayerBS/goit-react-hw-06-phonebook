@@ -20,4 +20,9 @@ const changeFilter = (value) => ({
   payload: value,
 });
 
-export default { addContact, changeFilter, deleteContact };
+const getContacts = (value) => ({
+  type: types.GET,
+  payload: value,
+});
+
+export default { addContact, changeFilter, deleteContact, getContacts };

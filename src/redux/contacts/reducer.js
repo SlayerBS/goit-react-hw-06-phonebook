@@ -8,6 +8,9 @@ const items = (state = [], { type, payload }) => {
     case types.DELETE:
       return state.filter(({ id }) => id !== payload);
 
+    case types.GET:
+      return [...state, payload];
+
     default:
       return state;
   }
