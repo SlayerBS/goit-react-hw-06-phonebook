@@ -1,9 +1,5 @@
 import { connect } from "react-redux";
-import {
-  addContact,
-  deleteContact,
-  changeFilter,
-} from "../../redux/contacts/actions";
+import { deleteContact } from "../../redux/contacts/actions";
 import ContactList from "./ContactList";
 
 const getVisibleContacts = (allContacts, filter) => {
