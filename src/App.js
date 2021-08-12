@@ -49,22 +49,22 @@ class App extends Component {
   //   console.log("Contacts", this.state.contacts);
   // };
 
-  handleFilter = (filter) => this.setState({ filter });
+  // handleFilter = (filter) => this.setState({ filter });
 
-  deleteContact = (deletedId) => {
-    this.setState((prevState) => ({
-      contacts: prevState.contacts.filter(
-        (contact) => contact.id !== deletedId
-      ),
-    }));
-  };
+  // deleteContact = (deletedId) => {
+  //   this.setState((prevState) => ({
+  //     contacts: prevState.contacts.filter(
+  //       (contact) => contact.id !== deletedId
+  //     ),
+  //   }));
+  // };
 
-  filteredContacts = () => {
-    const { contacts, filter } = this.state;
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  };
+  // filteredContacts = () => {
+  //   const { contacts, filter } = this.state;
+  //   return contacts.filter((contact) =>
+  //     contact.name.toLowerCase().includes(filter.toLowerCase())
+  //   );
+  // };
 
   render() {
     // const filteredContacts = this.filteredContacts();
@@ -75,10 +75,7 @@ class App extends Component {
         </Section>
         <Section title="Contacts">
           {/* <Filter filter={this.state.filter} onChange={this.handleFilter} /> */}
-          {/* <ContactList
-            contacts={filteredContacts}
-            onDelete={this.deleteContact}
-          /> */}
+          <ContactList />
         </Section>
       </Container>
     );
