@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-
+import { connect } from "react-redux";
+import actions from "../../redux/contacts/actions";
 import styles from "./Filter.module.css";
 
 const Filter = ({ filter, onChange }) => {
@@ -9,7 +10,7 @@ const Filter = ({ filter, onChange }) => {
       <input
         type="text"
         value={filter}
-        onChange={({ target }) => onChange(target.value)}
+        onChange={onChange}
         name="filter"
         title=""
         required
@@ -18,10 +19,17 @@ const Filter = ({ filter, onChange }) => {
     </>
   );
 };
+const mapStateToProps = (state) => ({
+  value: state.contacts.filter,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (evt) => dispatch(actions.changeFilter(evt.target.value)),
+});
 
 Filter.propTypes = {
   filter: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Filter;
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

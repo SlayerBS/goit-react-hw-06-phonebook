@@ -38,43 +38,16 @@ class App extends Component {
   //   }
   // }
 
-  // addContact = (data) => {
-  //   if (this.state.contacts.find((contact) => contact.name === data.name)) {
-  //     alert(
-  //       `${data.name} is already in contacts with contact number ${data.number} `
-  //     );
-  //     return;
-  //   }
-  //   this.setState(({ contacts }) => ({ contacts: [data, ...contacts] }));
-  //   console.log("Contacts", this.state.contacts);
-  // };
-
   // handleFilter = (filter) => this.setState({ filter });
 
-  // deleteContact = (deletedId) => {
-  //   this.setState((prevState) => ({
-  //     contacts: prevState.contacts.filter(
-  //       (contact) => contact.id !== deletedId
-  //     ),
-  //   }));
-  // };
-
-  // filteredContacts = () => {
-  //   const { contacts, filter } = this.state;
-  //   return contacts.filter((contact) =>
-  //     contact.name.toLowerCase().includes(filter.toLowerCase())
-  //   );
-  // };
-
   render() {
-    // const filteredContacts = this.filteredContacts();
     return (
       <Container>
         <Section title="Phonebook">
           <ContactForm />
         </Section>
         <Section title="Contacts">
-          {/* <Filter filter={this.state.filter} onChange={this.handleFilter} /> */}
+          <Filter />
           <ContactList />
         </Section>
       </Container>
